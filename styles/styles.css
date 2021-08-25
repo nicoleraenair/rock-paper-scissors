@@ -1,0 +1,86 @@
+body {
+    background-color: rgb(150, 36, 64);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:rgb(150, 36, 64);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:center;
+}
+
+header {
+    background-color: white;    top: 10;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#content {
+    background-color: rgb(150, 36, 64);
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1vh;
+    flex-wrap: wrap;
+}
+
+#input {
+    text-align:center;
+    background-color: white;
+    padding: 2em;
+}
+
+button {
+    background-color: white;
+    border: .1em solid rgb(150, 36, 64);
+    padding: 1em;
+    color: rgb(150, 36, 64);
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#start {
+    margin: 20vh; 
+    font-size: 30px;
+}
+
+#scoreboard {
+    background-color: white;
+    padding: 2em;
+}
+
+#resultCard {
+    background-color: white;
+    padding: 2em;
+    text-align:center;
+
+}
+
+sep {
+    width: 1em;
+    color:rgb(150, 36, 64);
+}
+
+#btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+#finalResultCard {
+    background-color: white;
+    padding: 2em;
+    text-align:center;
+}
+
+#finalContent {
+    background-color: rgb(150, 36, 64);
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1vh;
+    flex-wrap: wrap;
+}

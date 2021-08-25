@@ -8,6 +8,8 @@ const choose = document.createElement("p");
 const rockBtn = document.createElement("button");
 const paperBtn = document.createElement("button");
 const scissorsBtn = document.createElement("button");
+const btns = document.createElement("div");
+btns.setAttribute("id", "btns");
 
 choose.textContent = "Choose one:";
 input.appendChild(choose);
@@ -15,9 +17,10 @@ input.appendChild(choose);
 rockBtn.textContent = "Rock";
 paperBtn.textContent = "Paper";
 scissorsBtn.textContent = "Scissors";
-input.appendChild(rockBtn);
-input.appendChild(paperBtn);
-input.appendChild(scissorsBtn);
+btns.appendChild(rockBtn);
+btns.appendChild(paperBtn);
+btns.appendChild(scissorsBtn);
+input.appendChild(btns);
 
 rockBtn.addEventListener('click', () => {
     playRound(rockBtn.textContent);
@@ -32,6 +35,7 @@ scissorsBtn.addEventListener('click', () => {
 
 //scoreboard div - title and player/computer scores
 const scoreboard = document.createElement('div');
+scoreboard.setAttribute('id', "scoreboard");
 const pscore = document.createElement("p");
 const cscore = document.createElement("p");
 const scoreTitle = document.createElement("p");
@@ -40,12 +44,14 @@ scoreboard.appendChild(scoreTitle);
 scoreboard.appendChild(pscore);
 scoreboard.appendChild(cscore);
 
+
 //final result card
-let resultCard = document.createElement("div");
+let finalresultCard = document.createElement("div");
 let finalScore = document.createElement("p");
 let result = document.createElement("p");
-resultCard.appendChild(result);
-resultCard.appendChild(finalScore);
+finalresultCard.appendChild(result);
+finalresultCard.appendChild(finalScore);
+finalresultCard.setAttribute("id", "finalResultCard");
 
 //play again button
 let playAgainBtn = document.createElement("button");
@@ -55,11 +61,13 @@ playAgainBtn.addEventListener('click', () => {
     playAgainBtn.remove();;
 });   
 playAgainBtn.addEventListener('click', () => {
-    resultCard.remove();;
+    finalResultCard.remove();
+    content.setAttribute("id", "content");
 });  
 
 //body and start button
 const body = document.querySelector("body");
+const content = document.querySelector("#content");
 const startBtn = document.querySelector('#start');
 
 startBtn.addEventListener('click', startGame);
@@ -75,9 +83,9 @@ function startGame() {
     pscore.textContent = "You: 0";
     cscore.textContent = "Computer: 0"
     
-    body.appendChild(scoreboard);
+    content.appendChild(scoreboard);
 
-    body.appendChild(input);
+    content.appendChild(input);
 }
 
 
@@ -144,15 +152,20 @@ let playRound = (player) => {
     }
 
     let resultCard = document.createElement("div");
+    resultCard.setAttribute("id", "resultCard");
     resultCard.appendChild(playerSelection);
     resultCard.appendChild(computerSelection);
     resultCard.appendChild(result);
-    body.appendChild(resultCard);
+    input.remove();
+    content.appendChild(resultCard);
 
-    sleep(1000).then(() => {
+    sleep(2000).then(() => {
         resultCard.remove();
         if (playerScore === 5 || computerScore === 5) {
             endGame();
+        }
+        else{
+            content.appendChild(input);
         }
     });
 };
@@ -174,7 +187,8 @@ function endGame() {
 
     finalScore.textContent = "Final Score: " + playerScore + " - " + computerScore;
     
-    body.appendChild(resultCard);
-    body.appendChild(playAgainBtn);
+    content.setAttribute("id", "finalContent");
+    content.appendChild(finalresultCard);
+    content.appendChild(playAgainBtn);
 
 }
